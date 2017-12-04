@@ -12,7 +12,7 @@ const decrypt = (encrypted, key, iv = '00000000000000000000000000000000') => {
 
 const toHexBuffer = string => Buffer.from(string, 'hex')
 
-const zeropad = (inputData, length = 16) => {
+const zeropad = (inputData, length = 8) => {
     inputData = new Buffer(inputData, "utf8").toString("hex");
     console.log(`before padding \t${inputData}`)
     const bitLength = inputData.length * length;
@@ -36,7 +36,7 @@ console.log(`aes key \t${key}`)
 console.log(`init vector \t${iv}`)
 
 let plain = "Hello World"
-plain = zeropad(plain, 16)
+plain = zeropad(plain, 8)
 
 const encrypted = encrypt(plain, key, iv)
 console.log(`Encrypted \t${encrypted}`)
