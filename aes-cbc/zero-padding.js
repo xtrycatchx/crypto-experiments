@@ -41,3 +41,9 @@ console.log(`init vector \t${iv}`)
 let before = "Hello World"
 let after = zeropad(before, 16)
 
+const encrypted = encrypt(after, key, iv)
+console.log(`Encrypted \t${encrypted}`)
+
+const decrypted = decrypt(encrypted, key, iv);
+console.log(`Decrypted \t${decrypted}`)
+
