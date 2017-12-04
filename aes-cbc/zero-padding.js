@@ -32,5 +32,12 @@ const zeropad = (input, length = 16) => {
     return new Buffer(inputInHexString, "hex").toString("utf8");
 }
 
+const key = "603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4"
+const iv = "b24bf2f77ac5ec0c5e1f4dc1ae465e75"
 
+console.log(`aes key \t${key}`)
+console.log(`init vector \t${iv}`)
+
+let before = "Hello World"
+let after = zeropad(before, 16)
 
