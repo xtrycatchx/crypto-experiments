@@ -12,3 +12,7 @@ const decrypt = (encrypted, key, iv = '00000000000000000000000000000000') => {
     return decipher.update(Buffer.from(encrypted, 'hex'), 'utf8', 'utf8') + decipher.final('utf8');
 }
 
+const toHexBuffer = string => Buffer.from(string, 'hex')
+
+
+
