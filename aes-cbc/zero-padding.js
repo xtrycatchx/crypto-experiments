@@ -17,7 +17,7 @@ const zeropad = (inputData, length = 8) => {
     console.log(`before padding \t${inputData}`)
     const bitLength = inputData.length * length;
     if (bitLength < 256) {
-        for (i = bitLength; i < 256; i += length) {
+        for (let i = bitLength; i < 256; i += length) {
             inputData += 0;
         }
     } else if (bitLength > 256) {
@@ -29,13 +29,13 @@ const zeropad = (inputData, length = 8) => {
     return new Buffer(inputData, "hex").toString("utf8");
 }
 
-const key = "603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4"
-const iv = "b24bf2f77ac5ec0c5e1f4dc1ae465e75"
+const key = "1111111111111111111111111111111111111111111111111111111111111111"
+const iv = "22222222222222222222222222222222"
 
 console.log(`aes key \t${key}`)
 console.log(`init vector \t${iv}`)
 
-let plain = "Hello World"
+let plain = "Hello world"
 plain = zeropad(plain, 8)
 
 const encrypted = encrypt(plain, key, iv)
