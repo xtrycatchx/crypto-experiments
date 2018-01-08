@@ -26,7 +26,7 @@ const zeropad = (inputData, length = 8) => {
         }
     }
     console.log(`after padding \t${inputData}`)
-    return new Buffer(inputData, "hex").toString("utf8");
+    return Buffer.from(inputData, "hex").toString("utf8");
 }
 
 const key = "1111111111111111111111111111111111111111111111111111111111111111"
