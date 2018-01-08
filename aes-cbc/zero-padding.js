@@ -13,7 +13,7 @@ const decrypt = (encrypted, key, iv = '00000000000000000000000000000000') => {
 const toHexBuffer = string => Buffer.from(string, 'hex')
 
 const zeropad = (inputData, length = 8) => {
-    inputData = new Buffer(inputData, "utf8").toString("hex");
+    inputData = Buffer.from(inputData, "utf8").toString("hex");
     console.log(`before padding \t${inputData}`)
     const bitLength = inputData.length * length;
     if (bitLength < 256) {
