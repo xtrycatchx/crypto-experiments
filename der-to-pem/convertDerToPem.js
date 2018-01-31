@@ -1,5 +1,6 @@
 const zlib = require('zlib');
-const fs = require('fs')
+const fs = require('fs');
+const forge = require("node-forge");
 
 const certBinBuffer = fs.readFileSync('mycert.bin')
 const x = Buffer.from(certBinBuffer).toString('hex')
@@ -17,7 +18,7 @@ zlib.unzip(buffer, (err, buffer) => {
 });
 
 const derToPem = der => {
-    var forge = require("node-forge");
+    
     var derKey = forge.util.decode64(der);
     var asnObj = forge.asn1.fromDer(derKey);
     var asn1Cert = forge.pki.certificateFromAsn1(asnObj);
